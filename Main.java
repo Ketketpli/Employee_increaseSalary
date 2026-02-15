@@ -14,6 +14,8 @@ public class Main {
         List<Employee> list = new ArrayList<>();
         boolean idExists;
 
+        // PART 1 - READING DATA:
+        
         System.out.print("How many employees will be registered? ");
         int n = sc.nextInt();
         System.out.println();
@@ -47,6 +49,8 @@ public class Main {
             list.add(emp);
         }
 
+        // PART 2 - UPDATING SALARY OF GIVEN EMPLOYEE:
+
         System.out.print("Enter the employee id that will have salary increase : ");
         int id = sc.nextInt();
         idExists = false;
@@ -66,6 +70,8 @@ public class Main {
             System.out.println("This ID does not exist!");
         }
 
+        // PART 3 - LISTING EMPLOYEES:
+        
         System.out.println();
         System.out.println("List of employees: ");
         for (Employee e : list) {
@@ -75,3 +81,4 @@ public class Main {
         sc.close();
     }
 }
+
