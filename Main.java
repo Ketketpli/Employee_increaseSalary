@@ -53,25 +53,18 @@ public class Main {
 
         System.out.print("Enter the employee id that will have salary increase : ");
         int id = sc.nextInt();
-        idExists = false;
-
-        for (Employee e : list) {
-
-            if (e.getId() == id) {
-                idExists = true;
-                System.out.print("Enter the percentage: ");
-                double increase = sc.nextDouble();
-                e.increaseSalary(increase);
-                break;
-            }
-        }
-
-        if (!idExists) {
+        Integer pos = position(list, id);
+        if (pos == null) {
             System.out.println("This ID does not exist!");
+        }
+        else {
+            System.out.print("Enter the percentage: ");
+            double increase = sc.nextDouble();
+            list.get(pos).increaseSalary(increase);
         }
 
         // PART 3 - LISTING EMPLOYEES:
-        
+
         System.out.println();
         System.out.println("List of employees: ");
         for (Employee e : list) {
@@ -80,6 +73,16 @@ public class Main {
 
         sc.close();
     }
+
+    static Integer position (List<Employee> list, int id) {
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getId() == id) {
+                return i;
+            }
+        }
+        return null;
+    }
 }
+
 
 
